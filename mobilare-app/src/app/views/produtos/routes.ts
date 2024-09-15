@@ -24,12 +24,5 @@ export const routes: Routes = [
       title: 'Editar Produto'
     }
   },
-  // {
-  //   path: rootProdutos + '/visualizar/:id',
-  //   loadComponent: () => import('./inventario-ce/inventario-ce.component').then(m => m.InventarioCeComponent),
-  //   data: {
-  //     title: 'Visualizar Produto'
-  //   }
-  // }
 ];
 
