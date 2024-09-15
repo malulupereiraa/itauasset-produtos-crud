@@ -1,0 +1,11 @@
+$white: #ffffff;
+$blue-asset: #161F27;
+$orange-asset: #F25722;
+
+.mobilare-menu {
+  li {
+    a.nav-link {
+      color: $white!important;
+    }
+  }
+}

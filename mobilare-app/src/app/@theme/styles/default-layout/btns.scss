@@ -1,0 +1,13 @@
+$white: #ffffff;
+$blue-asset: #161F27;
+$orange-asset: #F25722;
+
+.btn-asset {
+  background-color: $orange-asset!important;
+  color: $white!important;
+}
+.btn-asset:hover {
+    background-color: $white!important;
+    color: $orange-asset!important;
+    border-color: $orange-asset!important;
+}

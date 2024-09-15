@@ -1,0 +1,39 @@
+<div class="row mt-5">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header"><h1 class="mb-0">{{ editMode ? 'Alterar Produto: ' + produto.code : 'Adicionar Produto' }}</h1></div>
+      <div class="card-body">
+        <div class="row">
+          @if(!editMode) {
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 mb-3">
+              <label for="code">Código:</label>
+              <input id="code" type="text" class="form-control" placeholder="Digite o Código do Produto" [(ngModel)]="produto.code" [disabled]="editMode" />
+            </div>
+          }
+          <div [class]="!editMode ? 'col-xs-12 col-sm-12 col-md-4 col-lg-4 mb-3' : 'col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-3'">
+            <label for="name">Nome:</label>
+            <input id="name" type="text" class="form-control" placeholder="Digite o Nome do Produto" [(ngModel)]="produto.name" />
+          </div>
+          <div [class]="!editMode ? 'col-xs-12 col-sm-12 col-md-4 col-lg-4 mb-3' : 'col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-3'">
+            <label for="category">Categoria:</label>
+            <select id="category" class="form-select" [(ngModel)]="produto.category">
+              <option *ngFor="let category of categorias" [value]="category">{{ category }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer d-flex justify-content-end">
+        <button type="button" (click)="goBack()" class="btn btn-sm btn-outline-dark d-flex align-items-center me-2"><ng-icon name="featherArrowLeft"></ng-icon> Voltar</button>
+        <button type="button" (click)="saveProduct()" class="btn btn-sm btn-asset d-flex align-items-center"><ng-icon name="featherSave"></ng-icon> Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+

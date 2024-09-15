@@ -1,0 +1,124 @@
+<div class="row mt-5">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header"><h1 class="mb-0">Produtos</h1></div>
+      <div class="card-body">
+        <div ngbAccordion class="mb-5">
+          <div ngbAccordionItem>
+            <h2 class="mb-0" ngbAccordionHeader>
+              <button ngbAccordionButton>
+                Filtros
+              </button>
+            </h2>
+            <div ngbAccordionCollapse>
+              <div ngbAccordionBody>
+                <ng-template><div class="row mb-5">
+                  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-3">
+                    <label for="code">Código:</label>
+                     <input type="text" class="form-control" id="code" [(ngModel)]="searchCode" (ngModelChange)="filterProdutos()" placeholder="Digite um Código">
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-3">
+                    <label for="category">Categoria:</label>
+                    <select class="form-select" id="category" [(ngModel)]="selectedCategory" (ngModelChange)="filterProdutos()">
+                      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+                    </select>
+                  </div>
+                </div>
+              </ng-template>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        @if(!loading) {
+          <mat-divider></mat-divider>
+          <div class="row mt-3">
+            <div class="col-12 d-flex justify-content-end">
+              <button type="button" class="btn btn-sm btn-asset d-flex align-items-center" [routerLink]="['/produtos/gerenciar-produtos/cadastrar']"><ng-icon name="featherPlus"></ng-icon>Adicionar Produto</button>
+            </div>
+          </div>
+
+
+               <div class="row mt-4 mb-3" >
+                <div class="col-12">
+                  <div class="mat-elevation-z8">
+                      <table mat-table [dataSource]="dataSource">
+
+                        <!-- Actions Column -->
+                        <ng-container matColumnDef="actions">
+                          <th mat-header-cell *matHeaderCellDef> Ações </th>
+                          <td mat-cell *matCellDef="let element">
+                            <button mat-icon-button (click)="editProduto(element.code)" cTooltip="Editar Produto" cTooltipPlacement="top"><mat-icon>edit</mat-icon></button>
+                            <button mat-icon-button (click)="deleteProduto(element.code)" cTooltip="Remover Produto" cTooltipPlacement="top"><mat-icon>delete</mat-icon></button>
+                          </td>
+                        </ng-container>
+
+                        <!-- ID Column -->
+                        <ng-container matColumnDef="codigo">
+                          <th mat-header-cell *matHeaderCellDef> Código </th>
+                          <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="nome">
+                          <th mat-header-cell *matHeaderCellDef> Nome </th>
+                          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                        </ng-container>
+
+                        <!-- Quantity Column -->
+                        <ng-container matColumnDef="categoria">
+                          <th mat-header-cell *matHeaderCellDef> Categoria </th>
+                          <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                      </table>
+
+                      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                                     showFirstLastButtons
+                                     [length]="pageLength"
+                                     [pageSize]="pageSize"
+                                     (page)="pageEvent($event)"
+                                     [pageIndex]="currentPage"
+                                     aria-label="Select page of products">
+                      </mat-paginator>
+                  </div>
+                </div>
+              </div>
+
+        }
+
+
+            @if(loading) {
+              <div
+               style="display: flex; justify-content: center; align-items: center; background: white;">
+                <mat-progress-spinner
+                  color="primary"
+                  mode="indeterminate">
+                </mat-progress-spinner>
+              </div>
+            }
+      </div>
+    </div>
+  </div>
+</div>
+
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title mb-0" id="modal-asset">Atenção!</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12">
+            <h4>Realmente deseja REMOVER este produto?</h4>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-outline-dark d-flex align-items-center" (click)="modal.close('Save click')"><ng-icon name="featherX"></ng-icon>Cancelar</button>
+        <button type="button" class="btn btn-sm btn-asset d-flex align-items-center" (click)="modal.close('Save click'); confirmDelete(idToManipulate)"><ng-icon name="featherCheck"></ng-icon>Remover</button>
+      </div>
+    </ng-template>
+

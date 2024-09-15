@@ -1,0 +1,35 @@
+
+<div class="container-fluid">
+  <div class="row flex-nowrap">
+      <div class="col-auto px-0 sidebar">
+          <div id="sidebar" class="collapse collapse-horizontal show border-end">
+              <div id="sidebar-nav" class="list-group border-0 rounded-0 text-sm-start min-vh-100">
+                  <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                    <a href="/" class="d-flex align-items-center justify-content-center w-100 text-white text-decoration-none">
+                        <span class="fs-5 d-none d-sm-inline">MOBILARE</span>
+                    </a>
+                    <hr />
+                    <ul class="nav nav-pills flex-column mb-auto mobilare-menu">
+                      <li class="nav-item">
+                        <a href="#" class="nav-link" aria-current="page" (click)="activeMenu($event)">
+                          <ng-icon name="featherHome"></ng-icon>
+                          Home
+                        </a>
+                      </li>
+                      <li>
+                        <a [routerLink]="['produtos/gerenciar-produtos']" class="nav-link" (click)="activeMenu($event)">
+                          <ng-icon name="featherBox"></ng-icon>
+                          Gerenciar Produtos
+                        </a>
+                      </li>
+                    </ul>
+                </div>
+              </div>
+          </div>
+      </div>
+      <main class="col ps-md-2 pt-2">
+          <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" class="border rounded-3 p-1 text-decoration-none btn-menu"><ng-icon name="featherMenu"></ng-icon></a>
+          <router-outlet />
+      </main>
+  </div>
+</div>
