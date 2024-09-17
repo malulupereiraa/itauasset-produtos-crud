@@ -52,9 +52,5 @@ Below this level you will find various folders that arrange the application's fu
 
 - `views:` Contains all the components of the application. 
 
-### Building Production Code
-
-- `ng build`.
-
 ## Credits
 This project was developed by Maria Luiza Pereira
