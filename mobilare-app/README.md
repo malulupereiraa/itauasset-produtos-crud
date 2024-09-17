@@ -56,9 +56,5 @@ Below this level you will find various folders that arrange the application's fu
 
 - `ng build`.
 
-### Testing Production Code
-
-- `ng test`.
-
 ## Credits
 This project was developed by Maria Luiza Pereira
