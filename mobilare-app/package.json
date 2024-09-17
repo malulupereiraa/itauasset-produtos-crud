@@ -54,6 +54,7 @@
     "@ng-icons/ux-aspects": "^29.5.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
+    "chart.js": "^4.4.4",
     "express": "^4.18.2",
     "jquery": "^3.7.1",
     "ngx-toastr": "^19.0.0",

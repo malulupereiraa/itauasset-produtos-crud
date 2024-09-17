@@ -1,27 +1,60 @@
-# MobilareApp
+# MOBILARE-APP
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.4.
+## Requirements
 
-## Development server
+- Node (v 20.9.0)
+- Angular CLI 17.3.4
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Quick Start
+Clone this repo and run the content locally:
+```bash
+$ npm install
+$ ng s
+```
 
-## Code scaffolding
+## Folder Structure
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The folder structure is somewhat simplified and flatter compared to John Papa's [Gulp Patterns](https://github.com/johnpapa/gulp-patterns) project. The description below includes reasons for some of my customizations.
 
-## Build
+### Source Folder Structure
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+/src
+    /app
+      /@core
+        /components
+          /default-layout
+        /models
+      /@theme
+        /default-layout
+      /views
+        /home
+        /produtos
+          /produto-ce
+          /produto-list
+    /assets
+    /index.html
+```
 
-## Running unit tests
+The `src` folder contains only the source for the AngularJS client application. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Below this level you will find various folders that arrange the application's functionality into logical modules.
 
-## Running end-to-end tests
+- `app:` Contains all of the folders with the project structure. Below this level you will find the following folders:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- `@core:` Contains functionality that is shared across the application and will probably need customization for a specific application. This includes models to the entire application.
 
-## Further help
+- `@theme:` Contains all the custom styles of the application.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- `views:` Contains all the components of the application. 
+
+### Building Production Code
+
+- `ng build`.
+
+### Testing Production Code
+
+- `ng test`.
+
+## Credits
+This project was developed by Maria Luiza Pereira

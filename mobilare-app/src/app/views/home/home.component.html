@@ -1,1 +1,49 @@
-<p>home works!</p>
+<div class="row mt-5 justify-content-around">
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-3">
+    <div id="divWeatherMain">
+      @if(weatherData.isDay) {
+        <div class="weatherWidgetRow icon">
+          <ng-icon name="featherSun" class="sun"></ng-icon>
+        </div>
+      } @else {
+        <div class="weatherWidgetRow icon">
+          <ng-icon name="featherMoon" class="moon"></ng-icon>
+        </div>
+      }
+
+      <div class="weatherWidgetRow cloudDiv">
+          <ng-icon name="featherCloud" class="cloud"></ng-icon>
+      </div>
+      <div class="weatherWidgetRow" style="font-size: 32px;margin-top: 5px;">{{weatherData.temp_celcius}}°</div>
+      <div class="weatherWidgetRow" style="font-size: 12px;">Mín.{{weatherData.temp_min}}° / Máx.{{weatherData.temp_max}}°</div>
+      <div class="weatherWidgetRow" style="font-size: 12px;">Sensação Térmica: {{weatherData.temp_feels_like}}°</div>
+      <div class="weatherWidgetRow" style="font-size: 25px;margin-top: 10px;">{{weatherData.name}}</div>
+      <div class="weatherWidgetRow" style="font-size: 12px;">Umidade: {{weatherData.main.humidity}}%</div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mb-3">
+    <div class="card">
+      <div class="card-body banner">
+        <div class="welcome"></div>
+        <div class="row h-100">
+          <div class="col-12 d-flex justify-content-center align-items-center">
+            <h1>Que bom ver você por aqui!</h1>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header"><h1>Produtos Cadastrados</h1></div>
+      <div class="card-body d-flex justify-content-center">
+        <div class="row">
+          <div class="col-12">
+            <canvas id="canvas" width="400" height="400">{{chart}}</canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

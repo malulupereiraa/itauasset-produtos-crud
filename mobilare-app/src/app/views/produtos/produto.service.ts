@@ -12,7 +12,10 @@ export class ProdutoService {
 
   private produtos: Produto[] = [
     { code: '001', name: 'Produto 1', category: 'Atacado' },
-    { code: '002', name: 'Produto 2', category: 'Varejo' }
+    { code: '002', name: 'Produto 2', category: 'Varejo' },
+    { code: '003', name: 'Produto 3', category: 'Internacional' },
+    { code: '004', name: 'Produto 4', category: 'Internacional' },
+    { code: '005', name: 'Produto 5', category: 'Varejo' }
   ];
 
   getProdutos(): Observable<Produto[]> {
