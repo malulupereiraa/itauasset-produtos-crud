@@ -11,6 +11,10 @@ Clone this repo and run the content locally:
 $ npm install
 $ ng s
 ```
+In your browser, access:
+```bash
+http://localhost:4200
+```
 
 ## Folder Structure
 
